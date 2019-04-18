@@ -6,9 +6,13 @@
       "path": "Library",
       "target": "ReplicatedStorage.Library"
     },
-    "ServerLibrary": {
-      "path": "ServerLibrary",
-      "target": "ServerScriptService.ServerLibrary"
+    "ServerScriptService": {
+      "path": "ServerScriptService",
+      "target": "ServerScriptService"
+    },
+    "Community": {
+      "path": "Community",
+      "target": "ServerStorage.Community"
     }
   }
 }

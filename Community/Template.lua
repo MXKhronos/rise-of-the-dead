@@ -1,18 +1,21 @@
-local Debugger = require(game.ReplicatedStorage.Library.Debugger).new(script.Name);
+--== Map;
+local Map = {
+	MapId="Template";
+};
+
 --== Modules;
-local Map = {};
-local modCommunityProfile = require(game.ServerScriptService.ServerLibrary.CommunityProfile)(Map);
+local Audio = require(Audio);
+local Configurations = require(Configurations);
+local CommunityProfile = require(Server.CommunityProfile);
 
 --== Variables;
 local random = Random.new();
 
 --== Script;
-Map.MapId = "Template";
+function Map:OnPlayerConnect(player)
 
-function Map.Initialize()
-	
 end
 
-function Map.OnPlayerConnect(player)
-
+function Map:Initialize()
+	
 end
