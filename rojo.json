@@ -9,10 +9,6 @@
     "ServerLibrary": {
       "path": "ServerLibrary",
       "target": "ServerScriptService.ServerLibrary"
-    },
-    "TestScript": {
-      "path": "TestScript.lua",
-      "target": "ReplicatedStorage.Test"
     }
   }
 }
