@@ -11,4 +11,4 @@ local MapTemplateModule = game.ServerStorage.Community.Template;
 
 --== Script;
 Debugger:Log("Initializing Sandbox for Template");
-Sandbox:RunModule("MapEnvironment", MapTemplateModule);
+Sandbox:RunString("MapEnvironment", workspace.Template.Value);

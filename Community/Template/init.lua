@@ -1,10 +1,3 @@
-local function debugEnv()
-	print("Debug ENV:");
-	for k, v in pairs(getfenv()) do print(k,"=",v); end;
-	print("End Debug ENV:");
-end
-debugEnv();
-
 --== Map;
 local Map = {
 	MapId="Template";
@@ -27,5 +20,7 @@ function Map:Initialize()
 	
 end
 
-Debugger:Log("Returning Map");
+delay(5, function()
+	Debugger:Log("Returning Map");
+end)
 return Map;

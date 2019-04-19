@@ -4,10 +4,10 @@ local Debugger = require(game.ReplicatedStorage.Library.Debugger).new(script.Nam
 local Sandbox = {};
 
 --== Script;
-function Sandbox:RunModule(environmentName, module)
+function Sandbox:RunString(environmentName, str)
 	local environment = script:FindFirstChild(environmentName) and require(script[environmentName]) or nil;
 	if environment then
-		return environment(module);
+		return environment(str);
 	else
 		error("Sandbox>>  Failed to run module "..module.Name.." in environment called "..environmentName);
 	end
