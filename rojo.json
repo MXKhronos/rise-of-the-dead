@@ -10,10 +10,6 @@
       "path": "ServerLibrary",
       "target": "ServerScriptService.ServerLibrary"
     },
-    "Sandboxing": {
-      "path": "Sandboxing",
-      "target": "ServerScriptService.Sandboxing"
-    },
     "Community": {
       "path": "Community",
       "target": "ServerStorage.Community"
