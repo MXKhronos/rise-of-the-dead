@@ -12,7 +12,7 @@ Want to make a community gamemode for Rise Of The Dead? Follow these steps! I, m
 
 ---
 ### Map Structure
-**Required**: It is recommended to install the Helix Nebula Devkit to create a new project.
+**Required**: Install the Helix Nebula Devkit for creating and saving map projects. (Not Published Yet)
 
 1. Create a new file on Roblox Studio and open the devkit from Plugins.
 2. With the devkit, you can simply create a new project by clicking **New Project**.
@@ -42,9 +42,9 @@ Map script runs as the server starts, this means that you can program your gamem
 | Return | Name |
 | --- | --- |
 | *void* | [Initialize()](#void-initialize) |
-| *void* | [OnPlayerConnect( *Player* player )](#void-onplayerconnect-player-player) |
-| *Folder* | [GetFolder()](#folder-getfolder-string-name) |
-| *void* | [LoadAudio()](#void-loadaudio-instance-container) |
+| *void* | [OnPlayerConnect( *Player* player )](#void-onplayerconnect-player-player-) |
+| *Folder* | [GetFolder()](#folder-getfolder-string-name-) |
+| *void* | [LoadAudio()](#void-loadaudio-instance-container-) |
 
 ---
 ### *void* Initialize()
