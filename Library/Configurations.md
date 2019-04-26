@@ -3,7 +3,7 @@ Set, manipulate and change game setting. Most settings are disabled on load, if 
 
 # Properties
 
-##Server Settings
+## Server Settings
 
 | Key | Default Value | Description |
 | --- | --- | --- |
@@ -14,7 +14,7 @@ Set, manipulate and change game setting. Most settings are disabled on load, if 
 | RemoveForceFieldOnWeaponFire | bool false | Removes any ForceField when the player fires a weapon. |
 | TargetableEntities | table {Zombie=1} | Humanoids with the following names will take damage from player's weapons. The number value determines the damager multiplier. |
 
-##Client Settings
+## Client Settings
 
 | Key | Default Value | Description |
 | --- | --- | --- |
