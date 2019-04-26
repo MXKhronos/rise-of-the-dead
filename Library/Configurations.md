@@ -2,7 +2,9 @@
 Set, manipulate and change game setting. Most settings are disabled on load, if you want the player's healthbar to show up, you will need to enable it.
 
 # Properties
+
 ##Server Settings
+
 | Key | Default Value | Description |
 | --- | --- | --- |
 | DisableResourceDrop | bool true | Disable enemies from dropping items on death. |
@@ -13,6 +15,7 @@ Set, manipulate and change game setting. Most settings are disabled on load, if 
 | TargetableEntities | table {Zombie=1} | Humanoids with the following names will take damage from player's weapons. The number value determines the damager multiplier. |
 
 ##Client Settings
+
 | Key | Default Value | Description |
 | --- | --- | --- |
 | DisableHotbar | bool true | Disable player hotbar. |
