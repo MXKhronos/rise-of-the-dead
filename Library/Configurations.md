@@ -27,7 +27,6 @@ Set, manipulate and change game setting. Most settings are disabled on load, if 
 ## Functions
 ---
 ### *void* Set( *String* SettingKey, *Variant* Value )
-
 Set the game setting to the new value.
 
 ```lua

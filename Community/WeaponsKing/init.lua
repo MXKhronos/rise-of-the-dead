@@ -14,4 +14,8 @@ Map.Configurations.Set("UpdateTargetableEntities", {Humanoid=1; Zombie=1.5;});
 --Audio
 Map:LoadAudio(Map:GetFolder("Audio"));
 
+function Map:OnPlayerConnect(player)
+	
+end
+
 return Map;

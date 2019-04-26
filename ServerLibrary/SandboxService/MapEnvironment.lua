@@ -21,9 +21,11 @@ return function(scrString, scrContainer)
 	EnvMeta.Debugger = Debugger;
 	
 	--== Map Headers;
+	MapMeta.Players = {};
 	MapMeta.GetFolder = nil;
 	MapMeta.Configurations = require(library.Configurations);
 	MapMeta.Library = {};
+	MapMeta.OnPlayerConnect = (function() end);
 	MapMeta.LoadAudio = nil;
 
 	--== Global Sources;
@@ -63,6 +65,34 @@ return function(scrString, scrContainer)
 	end);
 	if Map and Map.MapId then
 		setmetatable(Map, MapMeta);
+
+		local function OnPlayerAdded(player)
+			MapMeta.Players[player.Name] = setmetatable({}, {
+				-- metamethods;
+				__metatable="Player's metatable is locked.";
+				__index=(function(t, k)
+					if k == "Name" then
+						return player.Name;
+					else
+						Debugger:Warn("Denied access to "..k..".");
+						return nil;
+					end
+				end);
+				__newindex=(function(t, k, v)
+					Debugger:Warn("Denied access to change "..k.."'s value.");
+					return;
+				end);
+				-- object functions;
+				LoadCharacter=(function()
+					player:LoadCharacter();
+					-- unfinished
+				end)
+			});
+			return MapMeta.Players[player.Name];
+		end
+		--== Connections;
+		for _, player in pairs(game.Players:GetPlayers()) do OnPlayerAdded(player) end;
+		game.Players.PlayerAdded:Connect(OnPlayerAdded);
 	end
 	if not success then
 		error("MapEnvironment>>  Failed to run source.");

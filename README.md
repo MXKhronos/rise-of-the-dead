@@ -1,9 +1,10 @@
 # [Rise Of The Dead](https://github.com/MXKhronos/rise-of-the-dead)
-This is the Rise Of The Dead development wiki. The API is still in development and may just be experimental. There are no plans for it to be publicly used yet.
-
-## Community Mapping
-Check [Community](Community/) for examples of map scripts and guides to use them.
+This is the Rise Of The Dead community development documentation. The API is still in development and may just be experimental. I am making this for educational purposes and there are no plans for it to be publicly used yet.
 
 ## Documentation
-- [Library](Library/) contains libraries which has features to manipulate the map.
+- [Map](Community/README.md) full mapping guide and documentation.
+- [Library](Library/) contains libraries which are accessible.
 - - [Configurations](Library/Configurations.md) contain game settings.
+
+## Community Mapping
+See [Community](Community/) for template and example scripts.
