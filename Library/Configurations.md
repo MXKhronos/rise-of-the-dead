@@ -25,7 +25,7 @@ Set, manipulate and change game setting. Most settings are disabled on load, if 
 | DisableMailbox | bool true | Disable mailbox interface. |
 
 # Functions
-| void | Set(**String** SettingKey, **Variant** Value) |
+*void* Set(**String** SettingKey, **Variant** Value)
 ---
 Set the game setting to the new value.
 
@@ -33,12 +33,12 @@ Set the game setting to the new value.
 Map.Configurations.Set("DisableResourceDrop", true)
 ```
 
-| void | OnChanged(**String** SettingKey, **function** f) |
+*void* OnChanged(**String** SettingKey, **function** f)
 ---
 Fires **function** f when `SettingKey` is changed. `f` contains 2 parameters, `oldValue` and `newValue`. In the convenience of not needing to store the previouse variable.
 
 ```lua
-modConfigurations.OnChanged("DisableHealthbar", function(oldValue, value)
+Map.Configurations.OnChanged("DisableHealthbar", function(oldValue, value)
 	healthbar.Visible = not value;
 end)
 ```
