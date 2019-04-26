@@ -6,9 +6,13 @@
       "path": "Library",
       "target": "ReplicatedStorage.Library"
     },
-    "ServerScriptService": {
-      "path": "ServerScriptService",
-      "target": "ServerScriptService"
+    "ServerLibrary": {
+      "path": "ServerLibrary",
+      "target": "ServerScriptService.ServerLibrary"
+    },
+    "Sandboxing": {
+      "path": "Sandboxing",
+      "target": "ServerScriptService.Sandboxing"
     },
     "Community": {
       "path": "Community",

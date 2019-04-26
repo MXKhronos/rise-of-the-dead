@@ -4,11 +4,11 @@
 local Debugger = require(game.ReplicatedStorage.Library.Debugger).new(script.Name);
 
 --== Modules;
-local Sandbox = require(script.Sandbox);
+local SandboxService = require(script.SandboxService);
 
 --== Variables;
-local MapTemplateModule = game.ServerStorage.Community.Template;
+local MapTemplateSource = game.ServerStorage.Community.Template_Script;
 
 --== Script;
-Debugger:Log("Initializing Sandbox for Template");
-Sandbox:RunString("MapEnvironment", workspace.Template.Value);
+Debugger:Log("Initializing SandboxService");
+SandboxService:RunString("MapEnvironment", MapTemplateSource.Value);

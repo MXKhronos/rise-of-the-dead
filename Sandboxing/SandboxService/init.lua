@@ -9,7 +9,7 @@ function Sandbox:RunString(environmentName, str)
 	if environment then
 		return environment(str);
 	else
-		error("Sandbox>>  Failed to run module "..module.Name.." in environment called "..environmentName);
+		error("Sandbox>>  Failed to run string in environment called "..environmentName);
 	end
 end
 
