@@ -26,11 +26,19 @@ Set, manipulate and change game setting. Most settings are disabled on load, if 
 
 # Functions
 | void | Set(**String** SettingKey, **Variant** Value) |
-| --- | --- |
-| Set the game setting to the new value. |  |
-```lua Map.Configurations.Set("DisableResourceDrop", true)```
+---
+Set the game setting to the new value.
+
+```lua
+Map.Configurations.Set("DisableResourceDrop", true)
+```
 
 | void | OnChanged(**String** SettingKey, **function** f) |
-| --- |
-| Fires **function** f when `SettingKey` is changed. `f` contains 2 parameters, `oldValue` and `newValue`. In the convenience of not needing to store the previouse variable. |
-```lua modConfigurations.OnChanged("DisableHealthbar", function(oldValue, value) healthbar.Visible = not value; end) ```
+---
+Fires **function** f when `SettingKey` is changed. `f` contains 2 parameters, `oldValue` and `newValue`. In the convenience of not needing to store the previouse variable.
+
+```lua
+modConfigurations.OnChanged("DisableHealthbar", function(oldValue, value)
+	healthbar.Visible = not value;
+end)
+```
