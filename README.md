@@ -3,3 +3,7 @@ This is the Rise Of The Dead development wiki. The API is still in development a
 
 ## Community Mapping
 Check [Community](Community/) for examples of map scripts and guides to use them.
+
+## Documentation
+- [Library](Library/) contains libraries which has features to manipulate the map.
+-- [Configurations](Library/Configurations) contain game settings.
