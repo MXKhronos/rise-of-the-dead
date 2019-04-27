@@ -1,10 +1,13 @@
+local InstanceFolder = require(script.Folder);
+local InstancePlayer = require(script.Player);
+
 return function(scrString, scrContainer)
 	local DebuggerModule = require(game.ReplicatedStorage.Library.Debugger);
-	local SandboxModule = require(script.Parent.Sandbox);
 	local Debugger = DebuggerModule.new(script.Name);
 	local EnvMeta = {__metatable="The mapping environment is locked.";};
 	local MapMeta = {__metatable="The map metatable is locked.";};
 	local Env = setmetatable({}, EnvMeta);
+	local Map = setmetatable({}, MapMeta);
 
 	local library = game.ReplicatedStorage.Library;
 	local serverLibrary = game.ServerScriptService.ServerLibrary;
@@ -19,8 +22,10 @@ return function(scrString, scrContainer)
 	EnvMeta.__index = EnvMeta;
 	EnvMeta.__newindex = EnvMeta;
 	EnvMeta.Debugger = Debugger;
+	EnvMeta.Map = Map;
 	
 	--== Map Headers;
+	MapMeta.__index = MapMeta;
 	MapMeta.Players = {};
 	MapMeta.GetFolder = nil;
 	MapMeta.Configurations = require(library.Configurations);
@@ -49,7 +54,11 @@ return function(scrString, scrContainer)
 
 	--== Map Sources;
 	MapMeta.GetFolder = function(self, folderName)
-
+		if scrContainer == nil then Debugger:Warn("Source Container does not exist.") end;
+		local folder = scrContainer:FindFirstChild(folderName);
+		if folder then
+			return InstanceFolder(folder);
+		end
 	end
 
 	MapMeta.LoadAudio = function(self, container)
@@ -59,43 +68,17 @@ return function(scrString, scrContainer)
 	--== Sandbox;
 	local mapYielded = false;
 	delay(5, function() if not mapYielded then error("Map script loading timed out."); end end);
-	local Map = nil;
-	local success, err = pcall(function()
-		Map = setfenv(loadstring(scrString), Env)()
-	end);
-	if Map and Map.MapId then
-		setmetatable(Map, MapMeta);
-
+	local success, err = pcall(setfenv(loadstring(scrString), Env));
+	if success then
 		local function OnPlayerAdded(player)
-			MapMeta.Players[player.Name] = setmetatable({}, {
-				-- metamethods;
-				__metatable="Player's metatable is locked.";
-				__index=(function(t, k)
-					if k == "Name" then
-						return player.Name;
-					else
-						Debugger:Warn("Denied access to "..k..".");
-						return nil;
-					end
-				end);
-				__newindex=(function(t, k, v)
-					Debugger:Warn("Denied access to change "..k.."'s value.");
-					return;
-				end);
-				-- object functions;
-				LoadCharacter=(function()
-					player:LoadCharacter();
-					-- unfinished
-				end)
-			});
+			MapMeta.Players[player.Name] = InstancePlayer(player);
 			return MapMeta.Players[player.Name];
 		end
 		--== Connections;
 		for _, player in pairs(game.Players:GetPlayers()) do OnPlayerAdded(player) end;
 		game.Players.PlayerAdded:Connect(OnPlayerAdded);
-	end
-	if not success then
-		error("MapEnvironment>>  Failed to run source.");
+	else
+		warn("MapEnvironment>>  Failed Error: "..err);
 	end
 	mapYielded = true;
 	return Map;

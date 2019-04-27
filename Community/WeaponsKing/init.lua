@@ -1,8 +1,6 @@
 Debugger:Log("WeaponsKing Script Loaded");
 --== Map;
-local Map = {
-	MapId="WeaponsKing";
-};
+Map.MapId="WeaponsKing";
 
 --== Game Configurations;
 Map.Configurations.Set("DisableExperienceGain", true);
