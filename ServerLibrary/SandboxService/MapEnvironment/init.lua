@@ -1,5 +1,4 @@
-local InstanceFolder = require(script.Folder);
-local InstancePlayer = require(script.Player);
+local MapInstance = require(script.Instance);
 
 return function(scrString, scrContainer)
 	local DebuggerModule = require(game.ReplicatedStorage.Library.Debugger);
@@ -21,7 +20,6 @@ return function(scrString, scrContainer)
 	EnvMeta.error = error;
 	EnvMeta.__index = EnvMeta;
 	EnvMeta.__newindex = EnvMeta;
-	EnvMeta.Debugger = Debugger;
 	EnvMeta.Map = Map;
 	
 	--== Map Headers;
@@ -57,12 +55,16 @@ return function(scrString, scrContainer)
 		if scrContainer == nil then Debugger:Warn("Source Container does not exist.") end;
 		local folder = scrContainer:FindFirstChild(folderName);
 		if folder then
-			return InstanceFolder(folder);
+			return MapInstance.new("Folder", folder);
 		end
 	end
 
 	MapMeta.LoadAudio = function(self, container)
-		for _, c in pairs(container) do c.Parent = library.Audio; end;
+		if container.ClassName == "Folder" then
+			for _, c in pairs(MapInstance:Get(container):GetChildren()) do
+				c.Parent = library.Audio;
+			end;
+		end
 	end
 
 	--== Sandbox;
@@ -71,7 +73,7 @@ return function(scrString, scrContainer)
 	local success, err = pcall(setfenv(loadstring(scrString), Env));
 	if success then
 		local function OnPlayerAdded(player)
-			MapMeta.Players[player.Name] = InstancePlayer(player);
+			MapMeta.Players[player.Name] = MapInstance.new("Player", player);
 			return MapMeta.Players[player.Name];
 		end
 		--== Connections;

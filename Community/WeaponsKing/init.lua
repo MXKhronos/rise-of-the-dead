@@ -1,4 +1,4 @@
-Debugger:Log("WeaponsKing Script Loaded");
+print("WeaponsKing Script Loaded");
 --== Map;
 Map.MapId="WeaponsKing";
 
