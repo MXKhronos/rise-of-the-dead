@@ -1,7 +1,7 @@
-return function(object, meta)
-	meta.__index = meta;
-	meta.__metatable = "This metatable is locked.";
-	return setmetatable({
-		ClassName = "Folder";
-	}, meta);
+return function(object, instance, meta)
+	--== Properties;
+	meta.ClassName = "Folder";
+	
+	--== Functions;
+	return instance;
 end

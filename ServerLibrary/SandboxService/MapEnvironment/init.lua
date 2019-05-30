@@ -14,10 +14,12 @@ return function(scrString, scrContainer)
 	--== Modules;
 	
 	--== Global Headers;
+	EnvMeta.wait = wait;
 	EnvMeta.delay = delay;
 	EnvMeta.Random = Random;
 	EnvMeta.print = print;
 	EnvMeta.error = error;
+	EnvMeta.spawn = spawn;
 	EnvMeta.__index = EnvMeta;
 	EnvMeta.__newindex = EnvMeta;
 	EnvMeta.Map = Map;
@@ -28,7 +30,11 @@ return function(scrString, scrContainer)
 	MapMeta.GetFolder = nil;
 	MapMeta.Configurations = require(library.Configurations);
 	MapMeta.Library = {};
-	MapMeta.OnPlayerConnect = (function() end);
+
+	-- Map Functions
+	MapMeta.Initialize = nil;
+	MapMeta.OnPlayerConnect =  nil;
+	MapMeta.OnPlayerDisconnect = nil;
 	MapMeta.LoadAudio = nil;
 
 	--== Global Sources;

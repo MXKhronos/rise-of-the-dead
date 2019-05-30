@@ -10,6 +10,10 @@
       "path": "ServerLibrary",
       "target": "ServerScriptService.ServerLibrary"
     },
+    "CommunityService": {
+      "path": "CommunityService",
+      "target": "ServerScriptService.CommunityService"
+    },
     "Community": {
       "path": "Community",
       "target": "ServerStorage.Community"
